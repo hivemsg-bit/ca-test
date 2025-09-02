@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SarvCA - Dashboard</title>
+    <title>SarvCA - CA Test Series</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,8 +26,71 @@
             color: #333;
         }
         
+        /* Website Header */
+        .website-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85)), 
+                       url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        /* Features Section */
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Dashboard Styles */
         .dashboard-container {
-            display: flex;
+            display: none;
             min-height: 100vh;
         }
         
@@ -140,6 +203,77 @@
             padding: 15px;
         }
         
+        /* Login Page Styles */
+        .login-container {
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+        
+        .login-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .login-body {
+            padding: 30px;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .otp-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        /* Utility Classes */
+        .rounded-lg {
+            border-radius: 15px;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+            color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
@@ -150,11 +284,463 @@
             .main-content {
                 margin-left: 0;
             }
+            
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+            .search-bar {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
+    <!-- Homepage View -->
+    <div id="homepage">
+        <!-- Header -->
+        <header class="website-header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <h2 class="mb-0">Sarv<span class="text-gradient">CA</span></h2>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Test Series</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Pricing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Results</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                                <li class="nav-item ms-2">
+                                    <button class="btn btn-outline-light" onclick="showLoginPage()">Login</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-4 fw-bold mb-4">Ace Your CA Exams with Sarv Test Series</h1>
+                        <p class="lead mb-4">India's most comprehensive test series platform for CA Foundation, CA Intermediate, and CA Final. Get exam-ready with our expert-curated tests, detailed evaluations, and personalized feedback.</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="#pricing" class="btn btn-light btn-lg px-4 py-2">View Test Series</a>
+                            <a href="#features" class="btn btn-outline-light btn-lg px-4 py-2">Explore Features</a>
+                            <a href="#results" class="btn btn-outline-light btn-lg px-4 py-2">See Results</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-4">
+                        <h2 class="stat-number">15,000+</h2>
+                        <p class="lead">Successful Students</p>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <h2 class="stat-number">87%</h2>
+                        <p class="lead">Pass Percentage</p>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <h2 class="stat-number">450+</h2>
+                        <p class="lead">Rank Holders</p>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <h2 class="stat-number">24-48h</h2>
+                        <p class="lead">Evaluation Time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5" id="features">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Why Choose <span class="text-gradient">Sarv CA Test Series?</span></h2>
+                    <p class="lead text-muted">Our comprehensive platform provides everything you need to excel in your CA exams</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center">
+                                <div class="feature-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h4 class="card-title">ICAI Pattern Tests</h4>
+                                <p class="card-text">Our test papers are meticulously crafted by experienced Chartered Accountants to match the latest ICAI exam pattern and difficulty level.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h4 class="card-title">Detailed Evaluation</h4>
+                                <p class="card-text">Get your answer sheets evaluated by expert CAs with detailed feedback on presentation and conceptual understanding.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body text-center">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="card-title">Performance Analytics</h4>
+                                <p class="card-text">Comprehensive performance reports with All India Ranking and topic-wise analysis to track your progress.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Test Series Pricing -->
+        <section class="py-5 bg-light" id="pricing">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Test Series <span class="text-gradient">Pricing</span></h2>
+                    <p class="lead text-muted">Choose the perfect plan for your CA exam preparation</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-header bg-primary text-white text-center py-4">
+                                <h3>CA Foundation</h3>
+                                <div class="price display-4">₹2,499</div>
+                                <p>Complete test series</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 20+ Mock Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Chapter-wise Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Detailed Solutions</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> All India Ranking</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Doubt Solving</li>
+                                </ul>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-header bg-warning text-dark text-center py-4">
+                                <h3>CA Intermediate</h3>
+                                <div class="price display-4">₹3,999</div>
+                                <p>Complete test series</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 30+ Mock Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Group-wise Packages</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Video Solutions</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Performance Analysis</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Priority Support</li>
+                                </ul>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-header bg-info text-white text-center py-4">
+                                <h3>CA Final</h3>
+                                <div class="price display-4">₹4,999</div>
+                                <p>Complete test series</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 40+ Mock Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Subject-wise Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Expert Evaluation</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Revision Tests</li>
+                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Personal Mentorship</li>
+                                </ul>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-5" id="results">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Success <span class="text-gradient">Stories</span></h2>
+                    <p class="lead text-muted">Hear from our students who achieved success with our test series</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="card-text">"Sarv CA Test Series was a game-changer for my preparation. The detailed feedback on my answer sheets helped me improve my presentation skills."</p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Student" class="rounded-circle me-3" width="50">
+                                    <div>
+                                        <h6 class="mb-0">Priya Sharma</h6>
+                                        <small class="text-muted">CA Final, AIR 42</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="card-text">"The chapter-wise tests helped me strengthen my weak areas, and the video solutions were incredibly helpful. I scored 72 in Advanced Accounting."</p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="rounded-circle me-3" width="50">
+                                    <div>
+                                        <h6 class="mb-0">Rahul Mehta</h6>
+                                        <small class="text-muted">CA Intermediate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card feature-card h-100">
+                            <div class="card-body">
+                                <div class="text-warning mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="card-text">"As a working student, I needed flexible test timing and quick evaluation. Sarv Test Series provided both. The performance analytics helped me focus."</p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Student" class="rounded-circle me-3" width="50">
+                                    <div>
+                                        <h6 class="mb-0">Neha Gupta</h6>
+                                        <small class="text-muted">CA Foundation</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 bg-gradient">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mb-4">Ready to Ace Your CA Exams?</h2>
+                        <p class="lead text-white mb-4">Join thousands of successful CA students who have trusted Sarv Test Series for their exam preparation.</p>
+                        <button class="btn btn-light btn-lg px-5 py-3 me-3" onclick="showLoginPage()">Login to Dashboard</button>
+                        <a href="#pricing" class="btn btn-outline-light btn-lg px-5 py-3">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h3>Sarv<span class="text-gradient">CA</span></h3>
+                        <p class="text-muted">India's leading test series platform for CA exams. Providing quality mock tests and detailed evaluations since 2015.</p>
+                        <div class="d-flex gap-3 mt-4">
+                            <a href="#" class="text-muted"><i class="fab fa-facebook-f fa-lg"></i></a>
+                            <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
+                            <a href="#" class="text-muted"><i class="fab fa-instagram fa-lg"></i></a>
+                            <a href="#" class="text-muted"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4">
+                        <h5>Test Series</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">CA Foundation</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">CA Intermediate</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">CA Final</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Study Material</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Video Lectures</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Contact</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-4">
+                        <h5>Support</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Help Center</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Doubt Solving</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Feedback</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="bg-muted">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-muted">&copy; 2023 Sarv CA Test Series. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <p class="text-muted">Designed with <i class="fas fa-heart text-danger"></i> for CA students</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container" style="display: none;">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-lock me-2"></i>Student Login</h2>
+                <p>Access your dashboard with mobile verification</p>
+            </div>
+            <div class="login-body">
+                <div id="loginStep1">
+                    <div class="mb-3">
+                        <label for="mobileNumber" class="form-label">Mobile Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text">+91</span>
+                            <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter your mobile number" maxlength="10">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-100 py-2" onclick="requestOTP()">Send OTP</button>
+                    <div class="text-center mt-3">
+                        <p>New student? <a href="#" onclick="showSignupPage()">Create account</a></p>
+                    </div>
+                </div>
+                
+                <div id="loginStep2" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label">Enter OTP</label>
+                        <div class="otp-inputs">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 1)">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 2)">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 3)">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 4)">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 5)">
+                            <input type="text" class="otp-input" maxlength="1" onkeyup="moveToNext(this, 6)">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-100 py-2" onclick="verifyOTP()">Verify & Login</button>
+                    <div class="text-center mt-3">
+                        <p>Didn't receive OTP? <a href="#" onclick="requestOTP()">Resend</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signupPage" class="login-container" style="display: none;">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-user-plus me-2"></i>Student Registration</h2>
+                <p>Create your account to get started</p>
+            </div>
+            <div class="login-body">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                </div>
+                <div class="mb-3">
+                    <label for="signupMobile" class="form-label">Mobile Number</label>
+                    <div class="input-group">
+                        <span class="input-group-text">+91</span>
+                        <input type="tel" class="form-control" id="signupMobile" placeholder="Enter your mobile number" maxlength="10">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="course" class="form-label">Course</label>
+                    <select class="form-select" id="course">
+                        <option selected>Select your course</option>
+                        <option value="foundation">CA Foundation</option>
+                        <option value="intermediate">CA Intermediate</option>
+                        <option value="final">CA Final</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100 py-2" onclick="register()">Create Account</button>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="#" onclick="showLoginPage()">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboard" class="dashboard-container">
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-brand">
@@ -186,7 +772,7 @@
                     <a class="nav-link" href="#"><i class="fas fa-cog"></i> Settings</a>
                 </li>
                 <li class="nav-item mt-4">
-                    <a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a class="nav-link text-danger" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </li>
             </ul>
         </div>
@@ -457,6 +1043,69 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Page Navigation Functions
+        function showLoginPage() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'flex';
+            document.getElementById('signupPage').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'none';
+        }
+        
+        function showSignupPage() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('signupPage').style.display = 'flex';
+            document.getElementById('dashboard').style.display = 'none';
+        }
+        
+        function showDashboard() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('signupPage').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'flex';
+        }
+        
+        function logout() {
+            document.getElementById('homepage').style.display = 'block';
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('signupPage').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'none';
+        }
+        
+        // OTP Functions
+        function requestOTP() {
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            if (mobileNumber.length === 10) {
+                document.getElementById('loginStep1').style.display = 'none';
+                document.getElementById('loginStep2').style.display = 'block';
+                
+                // In a real app, you would send the OTP to the mobile number here
+                console.log('OTP sent to ' + mobileNumber);
+            } else {
+                alert('Please enter a valid 10-digit mobile number');
+            }
+        }
+        
+        function verifyOTP() {
+            // In a real app, you would verify the OTP here
+            // For demo purposes, we'll just redirect to the dashboard
+            showDashboard();
+        }
+        
+        function register() {
+            // In a real app, you would register the user here
+            // For demo purposes, we'll just redirect to the dashboard
+            showDashboard();
+        }
+        
+        function moveToNext(current, next) {
+            if (current.value.length === 1) {
+                if (next <= 6) {
+                    document.getElementsByClassName('otp-input')[next].focus();
+                }
+            }
+        }
+        
         // Initialize charts for dashboard
         document.addEventListener('DOMContentLoaded', function() {
             // Performance Chart
